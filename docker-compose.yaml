@@ -29,6 +29,21 @@ services:
       - ./docker/php/php.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network
+  db:
+    image: mysql:8
+    container_name: "db_lar"
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: pdf_lar
+      MYSQL_ROOT_PASSWORD: 123456
+
+    volumes:
+      - ./db:/var/lib/mysql
+    networks:
+      - app-network
 
 networks:
   app-network:
