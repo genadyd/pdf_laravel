@@ -1,1 +1,4 @@
 project_data
+db
+docker/nginx/logs
+src/.env
